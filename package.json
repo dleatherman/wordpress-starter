@@ -8,5 +8,8 @@
     "grunt-contrib-less": "^0.11.1",
     "grunt-mysql-dump-import": "^1.0.1"
   },
-  "themeFolder": "wp-content/themes/starter"
+  "themeFolder": "wp-content/themes/starter",
+  "scripts": {
+    "postinstall": "git clone https://github.com/WordPress/WordPress.git; cd WordPress/; git checkout tags/3.9.1; cd ../; cp -nr WordPress/* .; rm -rf WordPress/"
+  }
 }
