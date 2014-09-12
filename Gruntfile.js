@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
-    
+
     less: {
       production: {
         options: {
@@ -13,6 +13,20 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    cssmin: {
+      combine: {
+        options: {
+          banner : '/*\nTheme Name: <%= pkg.themeName %> \nTheme URI: <%= pkg.themeURL %> \nAuthor: <%= pkg.themeAuthor %> \nAuthor URI: <%= pkg.themeAuthorURL %>\n*/'
+          keepSpecialComments: 0,
+          report: 'gzip'
+        },
+        files: {
+          '<%= pkg.themeFolder %>/css/style.min.css': '<%= pkg.themeFolder %>/css/style.css'
+        }
+      }
+    },
+
 
     jshint: {
       files: ['<%= pkg.themeFolder %>/js/src/*.js'],
@@ -43,28 +57,29 @@ module.exports = function(grunt) {
       }
     },
 
-    uglify: {
+    bowercopy: {
+      options: {
+        clean: true
+      },
       bootstrap: {
         files: {
-          '<%= pkg.themeFolder %>/js/lib/bootstrap.min.js': [
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/transition.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/alert.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/button.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/carousel.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/collapse.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/dropdown.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/modal.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/tooltip.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/popover.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/scrollspy.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/tab.js',
-            '<%= pkg.themeFolder %>/js/lib/bootstrap/affix.js',
-          ]
+          '<%= pkg.themeFolder %>/css/less/bootstrap': 'bootstrap/less',
+          '<%= pkg.themeFolder %>/js/lib/bootstrap.js': 'bootstrap/dist/js/bootstrap.js',
+          '<%= pkg.themeFolder %>/fonts/bootstrap': 'bootstrap/dist/fonts'
         }
       },
+      jquery: {
+        files: {
+          '<%= pkg.themeFolder %>/js/lib/jquery.js': 'jquery/dist/jquery.js'
+        }
+      }
+    },
+
+    uglify: {
       site: {
         files: {
           '<%= pkg.themeFolder %>/js/dist/app.min.js': [
+            '<%= pkg.themeFolder %>/js/lib/jquery.js',
             '<%= pkg.themeFolder %>/js/lib/*.js',
             '<%= pkg.themeFolder %>/js/src/*.js'
           ]
@@ -84,7 +99,7 @@ module.exports = function(grunt) {
       },
       less: {
         files: ['<%= pkg.themeFolder %>/css/less/**/*.less'],
-        tasks: ['less:production']
+        tasks: ['less:production', 'cssmin']
       },
       jshint: {
         files: ['<%= pkg.themeFolder %>/js/src/*.js'],
@@ -131,8 +146,10 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.loadNpmTasks('grunt-bowercopy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-mysql-dump-import');

@@ -19,3 +19,5 @@ wp-content/themes/*
 !wp-content/themes/starter
 
 .DS_Store
+node_modules/
+bower_components/
