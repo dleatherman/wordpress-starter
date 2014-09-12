@@ -154,5 +154,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-mysql-dump-import');
 
+  grunt.registerTask('build', ['uglify:site', 'less:production', 'cssmin']);
+  grunt.registerTask('setup', ['bowercopy', 'build']);
   grunt.registerTask('default', ['watch']);
 }
