@@ -9,3 +9,6 @@
 1. Initialize and update git submodules - `git submodule update --init --recursive`
 2. Install Timber's dependencies - `cd wp-content/themes/starter/lib/timber && composer install & cd ../../../../../`
 3. Install all node packages - `npm install`
+4. Create a database in your MAMP phpMyAdmin and edit the wp-config file to reflect login credentials
+5. Point your web server to the project folder
+6. Finish installation and begin development!
