@@ -1,6 +1,7 @@
 # Ignore everything in the root except the "wp-content" directory.
 /*
 !.gitignore
+!.gitmodules
 !README.md
 !package.json
 !Gruntfile.js

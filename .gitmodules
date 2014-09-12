@@ -1,0 +1,3 @@
+[submodule "wp-content/themes/starter/lib/timber"]
+  path = wp-content/themes/starter/lib/timber
+  url = https://github.com/jarednova/timber.git
