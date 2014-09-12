@@ -16,11 +16,10 @@
 ### Grunt Tasks
 
 - `grunt bowercopy` - Downloads front-end deps using bower, copies them to their respective folders, then removes `bower_components/`
-- `grunt copy` - Copies javascript, css, images, and fonts from the `assets/` folder to the WordPress theme folder in `www/` and `shop/`
 - `grunt jshint` - Lints javascript source files
 - `grunt uglify` - Concatenates and minifies javascript
 - `grunt less` - Compiles less to css
-- `grunt watch`  - Polls for changes in files to run `less` `jshint` and `uglify` as well as `copy` tasks, runs a live reload server
+- `grunt watch`  - Polls for changes in files to run `less` `jshint` and `uglify` as well as runs a live reload server
 - `grunt build` -  Runs `uglify:site` followed `less:production` followed by `cssmin`
 - `grunt setup` -  Runs `bowercopy` followed by `build`
 - `grunt` -  Runs `watch`
