@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- **[WordPress Core:](https://github.com/WordPress/WordPress)** All of the wordpress core files have been ignored in git. You will need to download the latest version and manually copy the core files in to the root folder of the repo.
+- **[WordPress Core:](https://github.com/WordPress/WordPress)** All of the wordpress core files have been ignored in git. You will need to download the latest version and manually copy the core files in to the root folder of the repo. *If you run `npm install` it will automatically grab the Wordpress core and copy the files needed after the installation.
 - **[Composer:](https://getcomposer.org/)** Composer is used to install dependencies for timber.
 - **[NodeJS & NPM:](http://nodejs.org/)** Node is used for running grunt tasks.
 
