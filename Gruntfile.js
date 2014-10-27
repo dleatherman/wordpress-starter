@@ -2,6 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
+    db_config: grunt.file.readJSON('config.json'),
 
     less: {
       production: {
@@ -17,7 +18,7 @@ module.exports = function(grunt) {
     cssmin: {
       combine: {
         options: {
-          banner : '/*\nTheme Name: <%= pkg.themeName %> \nTheme URI: <%= pkg.themeURL %> \nAuthor: <%= pkg.themeAuthor %> \nAuthor URI: <%= pkg.themeAuthorURL %>\n*/'
+          banner : '/*\nTheme Name: <%= pkg.themeName %> \nTheme URI: <%= pkg.themeURL %> \nAuthor: <%= pkg.themeAuthor %> \nAuthor URI: <%= pkg.themeAuthorURL %>\n*/',
           keepSpecialComments: 0,
           report: 'gzip'
         },
@@ -118,11 +119,11 @@ module.exports = function(grunt) {
       "local": {
         "options": {
           "title": "Local DB",
-          "database": "<%= db_config.local.db_name %>",
-          "user": "<%= db_config.local.username %>",
-          "pass": "<%= db_config.local.password %>",
-          "host": "<%= db_config.local.host %>",
-          "site_url": "<%= db_config.local.site_url %>",
+          "database": "<%= db_config.db_name %>",
+          "user": "<%= db_config.username %>",
+          "pass": "<%= db_config.password %>",
+          "host": "<%= db_config.host %>",
+          "site_url": "<%= db_config.site_url %>",
           "backup_to": "db/local.sql",
           "port": "8889"
         }
@@ -133,11 +134,11 @@ module.exports = function(grunt) {
       "local": {
         "options": {
           "title": "Local DB",
-          "database": "<%= db_config.local.db_name %>",
-          "user": "<%= db_config.local.username %>",
-          "pass": "<%= db_config.local.password %>",
-          "host": "<%= db_config.local.host %>",
-          "site_url": "<%= db_config.local.site_url %>",
+          "database": "<%= db_config.db_name %>",
+          "user": "<%= db_config.username %>",
+          "pass": "<%= db_config.password %>",
+          "host": "<%= db_config.host %>",
+          "site_url": "<%= db_config.site_url %>",
           "backup_to": "db/local.sql",
           "port": "8889"
         }

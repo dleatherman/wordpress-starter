@@ -1,0 +1,7 @@
+{
+  "db_name": "starter_wp",
+  "username": "root",
+  "password": "root",
+  "site_url": "http://localhost:8888",
+  "host": "localhost"
+}

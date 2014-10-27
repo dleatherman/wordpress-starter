@@ -7,6 +7,7 @@
 !Gruntfile.js
 !wp-content/
 !db/
+!config-sample.json
 
 # Ignore everything in the "wp-content" directory, except the "plugins"
 # and "themes" directories.
@@ -14,8 +15,7 @@ wp-content/*
 wp-content/plugins/
 !wp-content/themes/
 
-# Ignore everything in the "themes" directory, except the themes you
-# specify (see the commented-out example for a hint on how to do this.)
+# Ignore everything in the "themes" directory, except the themes you specify
 wp-content/themes/*
 !wp-content/themes/starter
 
