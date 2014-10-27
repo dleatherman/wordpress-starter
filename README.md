@@ -7,11 +7,14 @@
 - **[NodeJS & NPM:](http://nodejs.org/)** Node is used for running grunt tasks.
 
 1. Initialize and update git submodules - `git submodule update --init --recursive`
-2. Install Timber's dependencies - `cd wp-content/themes/starter/lib/timber && composer install & cd ../../../../../`
+2. Install Timber's dependencies and move back to project root - `cd www/wp-content/themes/audicus/lib/timber && composer install && cd ../../../../../../`
 3. Install all node packages - `npm install`
-4. Create a database in your MAMP phpMyAdmin and edit the wp-config file to reflect login credentials
-5. Point your web server to the project folder
-6. Finish installation and begin development!
+4. Create a database in your MAMP phpMyAdmin and edit the `wp-config.php` file to reflect login credentials
+5. Create your own `config.json` file (based on `config-sample.json`) and update db info with your local database info.
+6. Run `grunt db_import`
+7. Run `grunt db_setup` to prep all files
+8. Point your web server to the project folder
+9. Finish installation and begin development!
 
 ### Grunt Tasks
 
