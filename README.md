@@ -25,4 +25,6 @@
 - `grunt watch`  - Polls for changes in files to run `less` `jshint` and `uglify` as well as runs a live reload server
 - `grunt build` -  Runs `uglify:site` followed `less:production` followed by `cssmin`
 - `grunt setup` -  Runs `bowercopy` followed by `build`
+- `grunt db_import` - Imports the database from `db/local.sql` into the database specified in your `config.json`
+- `grunt db_dump` - Dumps the database from your localhost into `db/local.sql` **This overwrites anything in this file**
 - `grunt` -  Runs `watch`
